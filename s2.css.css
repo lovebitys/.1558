@@ -1,0 +1,292 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    overflow:hidden;
+}
+
+body{
+    background:#120018;
+    color:#fff8fc;
+    overflow:hidden;
+}
+
+
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    background:rgba(18,0,24,.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    box-shadow:0 0 20px rgba(255,245,251,.15);
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:#fff5fb;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav button:hover{
+    transform:translateY(-3px);
+    color:white;
+}
+
+
+
+.pagina{
+    position:absolute;
+    top:80px;
+    left:0;
+
+    width:100%;
+    height:calc(100vh - 80px);
+
+    padding:40px 10%;
+
+    overflow-y:auto;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateX(100px);
+
+    transition:
+    opacity .6s ease,
+    transform .6s ease,
+    visibility .6s;
+}
+
+.pagina.ativa{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+.pagina::-webkit-scrollbar{
+    width:8px;
+}
+
+.pagina::-webkit-scrollbar-thumb{
+    background:#ffffff40;
+    border-radius:20px;
+}
+
+
+.hero{
+    height:100%;
+    min-height:calc(100vh - 80px);
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding-top:0;
+}
+
+.hero h1{
+    font-size:4rem;
+    color:#fff5fb;
+    margin-bottom:20px;
+    animation:flutuar 3s infinite;
+}
+
+.hero p{
+    max-width:700px;
+    font-size:1.3rem;
+    color:#fff8fc;
+}
+
+
+
+h2{
+    text-align:center;
+    margin-bottom:50px;
+    color:#fff5fb;
+    font-size:2.5rem;
+}
+
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#1d0027;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(255,245,251,.12);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.card p{
+    padding:15px;
+    text-align:center;
+    color:#fff8fc;
+}
+
+
+
+#contador{
+    background:#1d0027;
+    width:fit-content;
+    margin:auto;
+    padding:40px;
+    border-radius:25px;
+    font-size:2rem;
+    color:#fff5fb;
+    text-align:center;
+    box-shadow:0 0 20px rgba(255,245,251,.15);
+}
+
+
+.texto-card{
+    background:#1d0027;
+    margin-bottom:30px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,245,251,.12);
+    transition:.4s;
+}
+
+.texto-card:hover{
+    transform:scale(1.02);
+}
+
+.texto-card h3{
+    color:#fff5fb;
+    margin-bottom:15px;
+}
+
+.texto-card p{
+    line-height:1.7;
+    color:#fff8fc;
+}
+
+
+
+.motivos-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.motivo{
+    background:#1d0027;
+    padding:20px;
+    border-radius:15px;
+    color:#fff8fc;
+    box-shadow:0 0 15px rgba(255,245,251,.1);
+    transition:.3s;
+}
+
+.motivo:hover{
+    transform:translateY(-5px);
+}
+
+
+footer{
+    display:none;
+}
+
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:9999;
+}
+
+.heart{
+    position:absolute;
+    color:#fff5fb;
+    font-size:25px;
+    animation:subir linear forwards;
+    user-select:none;
+}
+
+
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-150px);
+        opacity:0;
+    }
+}
+
+@keyframes flutuar{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+
+@media(max-width:768px){
+
+    nav{
+        gap:10px;
+        flex-wrap:wrap;
+        padding:15px;
+    }
+
+    nav button{
+        font-size:.9rem;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    h2{
+        font-size:2rem;
+    }
+
+    #contador{
+        font-size:1.5rem;
+        width:100%;
+    }
+
+    .pagina{
+        padding:30px 5%;
+    }
+}
